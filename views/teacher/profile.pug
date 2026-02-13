@@ -1,13 +1,6 @@
 extends ../layout
 
 block content
-    nav
-        ul
-            li
-                a(href=`/teachers`) View TeachersTest2
-            li
-                a(href=`/courses`) View Courses
-
     h3 #{teacher.first_name} #{teacher.last_name}
     div
         p Room: #{teacher.room}
