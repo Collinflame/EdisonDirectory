@@ -2,6 +2,7 @@ extends layout
 
 block content
     include teacherProfile
+    h1 Campus Map
     div(class="mapArea")
         svg(width="1280", height="1655")
             rect(id="box" x="0", y="0", width="0", height="0")
@@ -56,6 +57,11 @@ block content
                 area(class="roomArea" shape="rect" coords="120, 1065, 161, 1113" href='/map/?room=W212')
     div(id="popupOverlay" class="removePopup")
         +teacherProfile(teacher, setCourses)
+
+    style.
+        body {
+            background: antiquewhite;
+        }
 
     script.
         let rooms = document.querySelectorAll(".roomArea")
