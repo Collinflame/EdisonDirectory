@@ -1,0 +1,74 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  min-width: 1800px;
+  min-height: 1000px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+table {
+  width: 80%;
+}
+
+td, th{
+  border: 1px solid #000;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.filter {
+  color: black;
+}
+
+.removePopup {
+   opacity: 0;
+}
+
+.exitButton {
+  background-color: red;
+  border: 3px solid black;
+  border-radius: 100px;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.mapArea svg {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+  min-width: 1280px;
+  max-width: 1280px;
+
+}
+
+.imageArea {
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  display: block;
+  margin: auto;
+}
+
+.mapArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+rect {
+  fill: goldenrod;
+  opacity: 0.4;
+}

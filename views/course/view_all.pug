@@ -1,0 +1,43 @@
+extends ../layout
+
+block content
+    nav
+        ul
+            li
+                a(href=`/teachers`) View Teachers
+            li
+                a(href=`/courses`) View Courses
+
+    h3 Courses
+        h4 Filters
+            form(action='/courses/' method='get')
+                label(for="department") Department
+                select(id="department" name="department" autocomplete="off")
+                    each department in departmentChoices
+                        option(value=department selected = (department === searchDepartment)) #{department}
+                label(for="department") Class Type
+                select(id="classType" name="classType" autocomplete="off")
+                    each classType in classTypeChoices
+                        option(value=classType selected = (classType === searchClassType)) #{classType}
+                input(id="ninth" name="ninth" type="checkbox" value="ninth")
+                label(for="ninth") Ninth Grade Classes
+                input(id="tenth" name="tenth" type="checkbox" value="tenth")
+                label(for="tenth") Tenth Grade Classes
+                input(id="eleventh" name="eleventh" type="checkbox" value="eleventh")
+                label(for="eleventh") Eleventh Grade Classes
+                input(id="twelfth" name="twelfth" type="checkbox" value="twelfth")
+                label(for="twelfth") Twelfth Grade Classes
+                button(type='submit') Filter
+        table
+            thead
+                tr
+                    th Name
+                    th Department
+                    th Grade levels
+            tbody
+                each course in sortedCourses
+                    tr
+                        td
+                            a(href=`/courses/profile/${course.id}`)= course.name
+                        td= course.department
+                        td= course.grade_levels

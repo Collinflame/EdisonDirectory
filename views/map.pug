@@ -1,0 +1,105 @@
+extends layout
+
+block content
+    include teacherProfile
+    div(class="mapArea")
+        svg(width="1280", height="1655")
+            rect(id="box" x="0", y="0", width="0", height="0")
+        div(class="imageArea")
+            img(style="border:5px solid black" usemap="#campus" src="/images/edison.png")
+            map(id="campus")
+                //Admin South
+                area(class="roomArea" shape="rect" coords="164.5, 744, 213.5, 772" href='/map/?room=AS61')
+                area(class="roomArea" shape="rect" coords="215.5, 744, 262.5, 772" href='/map/?room=AS62')
+
+                //Bus Lane, Counseling
+                area(class="roomArea" shape="rect" coords="57, 609, 102, 1547" href='https://edison.fresnounified.org/schedules/regular-bus-schedules' target='_blank')
+                area(class="roomArea" shape="rect" coords="270.5, 593, 403.5, 643" href='https://sites.google.com/view/edison-counseling/home' target='_blank')
+
+                //CTE Building
+                area(class="roomArea" shape="rect" coords="682.5, 911, 723.5, 944" href='/map/?room=101')
+                area(class="roomArea" shape="rect" coords="889.5, 911, 940.5, 944" href='/map/?room=104')
+                area(class="roomArea" shape="rect" coords="899.5, 997, 941.5, 1022" href='/map/?room=105')
+                area(class="roomArea" shape="rect" coords="777.5, 997, 816.5, 1022" href='/map/?room=107')
+                area(class="roomArea" shape="rect" coords="899.5, 968, 941.5, 996" href='/map/?room=208')
+
+                //Portable Buildings
+                area(class="roomArea" shape="rect" coords="830.5, 636, 878.5, 670" href='/map/?room=P15')
+                area(class="roomArea" shape="rect" coords="830.5, 518, 878.5, 555" href='/map/?room=P18')
+                area(class="roomArea" shape="rect" coords="766.5, 592, 814.5, 630" href='/map/?room=P20')
+                area(class="roomArea" shape="rect" coords="829.5, 469, 877.5, 502" href='/map/?room=P23')
+                area(class="roomArea" shape="rect" coords="766.5, 468, 814.5, 501" href='/map/?room=P27')
+                area(class="roomArea" shape="rect" coords="766.5, 433, 814.5, 465" href='/map/?room=P28')
+                area(class="roomArea" shape="rect" coords="766.5, 398, 814.5, 430" href='/map/?room=P29')
+
+                //R-Buildings
+                area(class="roomArea" shape="rect" coords="374.5, 1385, 415.5, 1424" href='/map/?room=R14')
+                area(class="roomArea" shape="rect" coords="707, 1179, 752, 1226" href='/map/?room=R20')
+                area(class="roomArea" shape="rect" coords="755.5, 1179, 800.5, 1226" href='/map/?room=R21')
+                area(class="roomArea" shape="rect" coords="854.5, 1179, 898.5, 1226" href='/map/?room=R23')
+                //START HERE
+                area(class="roomArea" shape="rect" coords="710, 1100, 753, 1146" href='/map/?room=R24')
+                area(class="roomArea" shape="rect" coords="857, 1100, 900, 1146" href='/map/?room=R27')
+
+                //Science Building
+                area(class="roomArea" shape="rect" coords="117, 830, 174, 850" href='/map/?room=S48')
+                area(class="roomArea" shape="rect" coords="118, 879, 174, 905" href='/map/?room=S50')
+                area(class="roomArea" shape="rect" coords="238, 879, 300, 905" href='/map/?room=S52')
+                area(class="roomArea" shape="rect" coords="238, 801, 300, 828" href='/map/?room=S55')
+                area(class="roomArea" shape="rect" coords="117, 801, 174, 828" href='/map/?room=S57')
+
+                //W-Building
+                area(class="roomArea" shape="rect" coords="120, 1351, 162, 1396" href='/map/?room=W201')
+                area(class="roomArea" shape="rect" coords="303, 1257, 343, 1301" href='/map/?room=W204')
+                area(class="roomArea" shape="rect" coords="120, 1264, 162, 1306" href='/map/?room=W205')
+                area(class="roomArea" shape="rect" coords="120, 1116, 161, 1163" href='/map/?room=W211')
+                area(class="roomArea" shape="rect" coords="120, 1065, 161, 1113" href='/map/?room=W212')
+    div(id="popupOverlay" class="removePopup")
+        +teacherProfile(teacher, setCourses)
+
+    script.
+        let rooms = document.querySelectorAll(".roomArea")
+        rooms.forEach(element => {
+            element.addEventListener("click", function() {
+                localStorage.setItem('hasPopup', 'true')
+            });
+
+            element.addEventListener("mouseover", function(){
+                let coords = element.coords.split(',');
+                let left = coords[0];
+                let top = coords[1];
+                let right = coords[2];
+                let bottom = coords[3];
+                svgBox(left, top, right, bottom);
+            })
+
+            element.addEventListener("mouseout", function () {
+                let box = document.getElementById("box");
+                box.setAttribute("x", `0`);
+                box.setAttribute("y", `0`);
+                box.setAttribute("width", `0`);
+                box.setAttribute("height", `0`);
+            })
+        });
+        document.getElementById("remove").addEventListener("click", function (){
+            localStorage.setItem('hasPopup', 'false')
+            window.location.reload();
+        })
+        document.addEventListener("DOMContentLoaded", function(){
+            if (!window.location.href.includes("room")){
+                localStorage.setItem('hasPopup', 'false')
+            }
+            if (localStorage.getItem('hasPopup') === 'true') {
+                document.getElementById("popupOverlay").className = ('');
+            }
+        })
+
+        function svgBox(left, top, right, bottom){
+            let box = document.getElementById("box");
+            let width = right - left;
+            let height = bottom - top;
+            box.setAttribute("x", `${left}`);
+            box.setAttribute("y", `${top}`);
+            box.setAttribute("width", `${width}`);
+            box.setAttribute("height", `${height}`);
+        }

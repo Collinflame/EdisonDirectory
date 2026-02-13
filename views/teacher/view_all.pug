@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+    nav
+        ul
+            li
+                a(href=`/teachers`) View Teachers
+            li
+                a(href=`/courses`) View Courses
+
+    h3 Teachers
+        h4 Filters
+        form(action='/teachers/' method='get')
+          label(for="building") Building
+          select(id="building" name="building" autocomplete="off") Building
+                each building in buildingChoices
+                    option(value=building selected = (building === searchBuildings)) #{building}
+          label(for="department") Department
+          select(id="department" name="department" autocomplete="off") Department
+                each department in departmentChoices
+                    option(value=department selected = (department === searchDepartments)) #{department}
+          input(id="AP" name="AP" type="checkbox" value="AP")
+          label(for="AP") AP Teachers Only
+          button(type='submit') Filter
+        table
+            thead
+                tr
+                    th Name
+                    th Room
+                    th Email
+            tbody
+                each teacher in sortedTeachers
+                    tr
+                        td
+                         a(href=`/teachers/profile/${teacher.id}`)= `${teacher.first_name} ${teacher.last_name}`
+                        td= teacher.room
+                        td
+                         a(href=`mailto:${teacher.email}`)= teacher.email
+
