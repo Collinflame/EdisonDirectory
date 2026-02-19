@@ -21,6 +21,7 @@ block content
                 area(class="roomArea" shape="rect" coords="682.5, 911, 723.5, 944" href='/map/?room=101')
                 area(class="roomArea" shape="rect" coords="889.5, 911, 940.5, 944" href='/map/?room=104')
                 area(class="roomArea" shape="rect" coords="899.5, 997, 941.5, 1022" href='/map/?room=105')
+                //area(class="roomArea" shape="rect" coords="854.5, 997, 896.5, 1022" href='/map/?room=106')
                 area(class="roomArea" shape="rect" coords="777.5, 997, 816.5, 1022" href='/map/?room=107')
                 area(class="roomArea" shape="rect" coords="899.5, 968, 941.5, 996" href='/map/?room=208')
 
@@ -35,6 +36,7 @@ block content
 
                 //R-Buildings
                 area(class="roomArea" shape="rect" coords="374.5, 1385, 415.5, 1424" href='/map/?room=R14')
+                area(class="roomArea" shape="rect" coords="418.5, 1385, 463.5, 1424" href='/map/?room=R16')
                 area(class="roomArea" shape="rect" coords="707, 1179, 752, 1226" href='/map/?room=R20')
                 area(class="roomArea" shape="rect" coords="755.5, 1179, 800.5, 1226" href='/map/?room=R21')
                 area(class="roomArea" shape="rect" coords="854.5, 1179, 898.5, 1226" href='/map/?room=R23')
@@ -42,7 +44,8 @@ block content
                 area(class="roomArea" shape="rect" coords="854.5, 1096, 898.5, 1143" href='/map/?room=R27')
 
                 //Science Building
-                area(class="roomArea" shape="rect" coords="115, 825.5, 172.5, 847" href='/map/?room=S48')
+                area(class="roomArea" shape="rect" coords="301.5, 826, 362, 847" href='/map/?room=S45')
+                area(class="roomArea" shape="rect" coords="115, 826, 172.5, 847" href='/map/?room=S48')
                 area(class="roomArea" shape="rect" coords="115.5, 875, 172.5, 902" href='/map/?room=S50')
                 area(class="roomArea" shape="rect" coords="235.5, 875, 298.5, 902" href='/map/?room=S52')
                 area(class="roomArea" shape="rect" coords="235.5, 798, 298.5, 825" href='/map/?room=S55')
@@ -52,6 +55,7 @@ block content
                 area(class="roomArea" shape="rect" coords="118, 1347, 161, 1393" href='/map/?room=W201')
                 area(class="roomArea" shape="rect" coords="300.5, 1252.5, 340.5, 1298" href='/map/?room=W204')
                 area(class="roomArea" shape="rect" coords="118, 1260, 161, 1303" href='/map/?room=W205')
+                area(class="roomArea" shape="rect" coords="118, 1163, 160, 1208" href='/map/?room=W209')
                 area(class="roomArea" shape="rect" coords="118, 1112.5, 160, 1160" href='/map/?room=W211')
                 area(class="roomArea" shape="rect" coords="118, 1062, 160, 1109" href='/map/?room=W212')
     div(id="popupOverlay" class="removePopup")
@@ -88,7 +92,7 @@ block content
         });
         document.getElementById("remove").addEventListener("click", function (){
             localStorage.setItem('hasPopup', 'false')
-            window.location.reload();
+            window.location.replace('/map');
         })
         document.addEventListener("DOMContentLoaded", function(){
             if (!window.location.href.includes("room")){
