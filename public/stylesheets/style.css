@@ -7,6 +7,7 @@ body {
 
 a {
   color: #00B7FF;
+  text-decoration: none;
 }
 
 table {
@@ -49,6 +50,8 @@ td, th{
   cursor: pointer;
 }
 
+
+
 .mapArea svg {
   position: relative;
   z-index: 2;
@@ -56,6 +59,11 @@ td, th{
   min-width: 1280px;
   max-width: 1280px;
 
+}
+
+h1{
+  text-align: center;
+  font-weight: bold;
 }
 
 .imageArea {
@@ -87,6 +95,71 @@ td, th{
 rect {
   fill: goldenrod;
   opacity: 0.4;
+}
+
+li {
+  font-size: 17px;
+  font-weight: bold;
+  list-style: none;
+}
+
+/* Basic styling for the nav and lists */
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+
+.nav-item {
+  position: relative; /* Needed for positioning the dropdown */
+  padding: 10px 15px;
+}
+
+/* Hide the dropdown menu by default */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  max-width: 160px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  top: 99%;
+  z-index: 1000;
+  border: black solid 1px;
+}
+
+.dropdown-menu li a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  border: black solid 1px;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+
+}
+
+.nav-item.dropdown a.button {
+  color: black;
+  background-color: white;
+  padding: 6px 10px;
+  font-size: 17px;
+  border: black solid 2px;
+  cursor: pointer;
+}
+
+.nav-item.dropdown a.button:hover {
+  text-decoration: underline;
 }
 
 .popupOverlay {
