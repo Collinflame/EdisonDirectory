@@ -2,6 +2,9 @@ extends layout
 
 block content
     include teacherProfile
+    div(id="outer" class="removePopup")
+        div(id="inner" class="removePopup")
+            +teacherProfile(teacher, setCourses)
     div(class="mapArea")
         svg(width="1280", height="1655")
             rect(id="box" x="0", y="0", width="0", height="0")
@@ -54,8 +57,6 @@ block content
                 area(class="roomArea" shape="rect" coords="120, 1264, 162, 1306" href='/map/?room=W205')
                 area(class="roomArea" shape="rect" coords="120, 1116, 161, 1163" href='/map/?room=W211')
                 area(class="roomArea" shape="rect" coords="120, 1065, 161, 1113" href='/map/?room=W212')
-    div(id="popupOverlay" class="removePopup")
-        +teacherProfile(teacher, setCourses)
 
     script.
         let rooms = document.querySelectorAll(".roomArea")
@@ -90,7 +91,11 @@ block content
                 localStorage.setItem('hasPopup', 'false')
             }
             if (localStorage.getItem('hasPopup') === 'true') {
-                document.getElementById("popupOverlay").className = ('');
+                document.getElementById("inner").className = ('popupOverlay');
+                document.getElementById("outer").className = ('popupOuter');
+            } else{
+                document.getElementById("inner").className = ('removePopup');
+                document.getElementById("outer").className = ('removePopup');
             }
         })
 
