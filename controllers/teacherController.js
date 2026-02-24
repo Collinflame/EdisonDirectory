@@ -1,6 +1,6 @@
 const {Teacher, Period, Course} = require('../models');
 let buildingChoices = ['All', 'Admin South', 'Art Building', 'CTE Building', 'Science Building', 'W-Building'];
-let departmentChoices = ['All', 'ALPS', 'Biomedicine', 'Computer Science', 'Engineering', 'English', 'Green Academy', 'History', 'Math', 'Performing Arts', 'Science', 'Visual Arts'];
+let departmentChoices = ['All', 'ALPS', 'Biomedicine', 'Computer Science', 'Engineering', 'English', 'Green Academy', 'History', 'Math', 'Performing Arts', 'Science', 'Teacher Academy', 'Visual Arts'];
 let sortedTeachers = [];
 
 
@@ -209,6 +209,21 @@ module.exports.viewAll = async function(req, res){
                 });
                 for (let i = 0; i<teacher.courses.length; i++){
                     if (teacher.courses[i].department === "Science"){
+                        correctDepartment = true;
+                    }
+                }
+                if (!correctDepartment){
+                    sortedTeachers.splice(i, 1);
+                }
+            }
+        } else if (searchDepartment === 'Teacher Acadmey') {
+            for (let i = sortedTeachers.length - 1; i >= 0; i--) {
+                let correctDepartment = false;
+                let teacher = await Teacher.findByPk(sortedTeachers[i].id, {
+                    include: ['courses']
+                });
+                for (let i = 0; i<teacher.courses.length; i++){
+                    if (teacher.courses[i].department === "Teacher Academy"){
                         correctDepartment = true;
                     }
                 }
