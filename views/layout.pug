@@ -1,16 +1,17 @@
 doctype html
 html
-nav.navbar
-  ul.nav-list
-    li.nav-item.dropdown
-      a.button School Directory
-      ul.dropdown-menu
-        li
-          a(href=`/teachers`) View Teachers
-        li
-          a(href=`/courses`) View Courses
-        li
-          a(href=`/map`) Map
+  div(class="directory")
+    nav.navbar
+      ul.nav-list
+        li.nav-item.dropdown
+          a.button School Directory
+          ul.dropdown-menu
+            li
+              a(href=`/teachers`) View Teachers
+            li
+              a(href=`/courses`) View Courses
+            li
+              a(href=`/map`) Map
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')

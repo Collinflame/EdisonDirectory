@@ -145,3 +145,8 @@ li {
 .nav-item.dropdown a.button:hover {
   text-decoration: underline;
 }
+
+.directory {
+  display: flex;
+  justify-content: right;
+}
