@@ -7,7 +7,6 @@ const courseController = require("../controllers/courseController");
 router.get('/', (req, res) => {
     res.redirect(301, '/teachers');
 });
-router.get('/teachers/profile/:id', teacherController.viewProfile)
 router.get('/courses/profile/:id', courseController.viewProfile)
 router.get('/courses', courseController.viewAll);
 router.get('/teachers', teacherController.viewAll);

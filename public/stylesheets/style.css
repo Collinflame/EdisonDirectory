@@ -25,12 +25,11 @@ td, th{
 }
 
 .removePopup {
-   opacity: 0;
+  opacity: 0;
   max-height: 1px;
 }
 
 .popupOverlay {
-
   position: fixed;
 }
 
@@ -174,6 +173,10 @@ li {
   margin-right: -240px;
 }
 
+.removeProfileContent {
+  pointer-events: none;
+}
+
 .popupOuter{
   opacity: 1;
   transition: 0.4s;
@@ -190,4 +193,9 @@ li {
   justify-content: center;
   align-items: center;
   padding: 16px;
+}
+
+.directory {
+  display: flex;
+  justify-content: right;
 }

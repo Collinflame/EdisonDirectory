@@ -1,0 +1,22 @@
+mixin courseProfile(course)
+
+    div(id="courseProfile" class="removeProfileContent")
+        button(id="remove" class="exitButton") X
+        h3 #{course.name}
+        div
+            p Department: #{course.department}
+            p Grade Levels: #{course.grade_levels}
+        h3 Courses' Teachers
+            table
+                thead
+                tr
+                    th Name
+                    th Room
+                    th Email
+                tbody
+                    each teacher in course.teachers
+                        tr
+                            td= `${teacher.first_name} ${teacher.last_name}`
+                            td= teacher.room
+                            td
+                                a(href=`mailto:${teacher.email}`)= teacher.email

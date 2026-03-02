@@ -1,4 +1,5 @@
 const {Teacher, Period, Course} = require('../models');
+const express = require("express");
 let buildingChoices = ['All', 'Admin South', 'Art Building', 'CTE Building', 'Science Building', 'W-Building'];
 let departmentChoices = ['All', 'ALPS', 'Biomedicine', 'Computer Science', 'Engineering', 'English', 'Green Academy', 'History', 'Math', 'Performing Arts', 'Science', 'Teacher Academy', 'Visual Arts'];
 let sortedTeachers = [];
@@ -7,6 +8,8 @@ let sortedTeachers = [];
 module.exports.viewAll = async function(req, res){
     const teachers = await Teacher.findAll();
     sortedTeachers = teachers.sort(sortName);
+
+    //Filter
     let searchBuilding = req.query.building;
     let buildingFilter = true;
     if (buildingFilter){
@@ -248,25 +251,25 @@ module.exports.viewAll = async function(req, res){
             }
         }
     }
-    res.render('teacher/view_all', {sortedTeachers, buildingChoices, searchBuilding, departmentChoices, searchDepartment});
-}
 
+    //Profile
+    const express = require('express');
+    const app = express();
+    app.get('/teachers', (req) => {
 
-function sortName(a, b){
-    if (a.last_name < b.last_name){
-        return -1;
-    } else if (a.last_name > b.last_name){
-        return 1;
-    } else{
-        return 0
-    }
-}
-
-module.exports.viewProfile = async function(req, res){
-    const teacher = await Teacher.findByPk(req.params.id, {
+    })
+    let name = req.query.name;
+    let teacher = await Teacher.findByPk(12, {
         include: ['courses', 'periods']
-    });
-    const periods = await Period.findAll({where: {teacher_id: teacher.id}});
+    })
+    for (let i=0; i<teachers.length; i++){
+        if (`${teachers[i].first_name}_${teachers[i].last_name}` === name){
+            teacher = await Teacher.findByPk(teachers[i].id, {
+                include: ['courses', 'periods']
+            });
+        }
+    }
+    let periods = await Period.findAll({where: {teacher_id: await teacher.id}});
     let allPeriods = [];
     let sevenPeriods = ['Period 1', 'Period 2', 'Period 3', 'Period 4', 'Period 5', 'Period 6', 'Period 7'];
     //Finds Courses of the Teacher
@@ -285,8 +288,20 @@ module.exports.viewProfile = async function(req, res){
             setCourses.push([sevenPeriods[i], teacher.courses[x].name, teacher.courses[x].department, teacher.courses[x].grade_levels]);
         }
     }
-    res.render('teacher/profile', {teacher, allPeriods, setCourses});
+    res.render('teacher/view_all', {sortedTeachers, buildingChoices, searchBuilding, departmentChoices, searchDepartment, teacher, allPeriods, setCourses});
 }
+
+
+function sortName(a, b){
+    if (a.last_name < b.last_name){
+        return -1;
+    } else if (a.last_name > b.last_name){
+        return 1;
+    } else{
+        return 0
+    }
+}
+
 
 module.exports.viewMap = async function(req, res){
     const express = require('express');

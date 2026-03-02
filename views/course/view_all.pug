@@ -1,6 +1,10 @@
 extends ../layout
 
 block content
+    include ../CourseProfile
+    div(id="outer" class="removePopup")
+        div(id="inner" class="removePopup")
+            +courseProfile(course)
     h3 Courses
         h4 Filters
             form(action='/courses/' method='get')
@@ -31,6 +35,32 @@ block content
                 each course in sortedCourses
                     tr
                         td
-                            a(href=`/courses/profile/${course.id}`)= course.name
+                            a(href=`/courses/?name=${course.name}` class="courses")= course.name
                         td= course.department
                         td= course.grade_levels
+    script.
+        let courses = document.querySelectorAll(".courses")
+        courses.forEach(element => {
+            element.addEventListener("click", function () {
+                localStorage.setItem('coursePopup', 'true')
+            });
+
+        });
+        document.getElementById("remove").addEventListener("click", function () {
+            localStorage.setItem('coursePopup', 'false')
+            window.location.reload();
+        })
+        document.addEventListener("DOMContentLoaded", function () {
+            if (!window.location.href.includes("?name=")) {
+                localStorage.setItem('coursePopup', 'false')
+            }
+            if (localStorage.getItem('coursePopup') === 'true') {
+                document.getElementById("inner").className = ('popupOverlay');
+                document.getElementById("outer").className = ('popupOuter');
+                document.getElementById("courseProfile").className = ('profileContent');
+            } else {
+                document.getElementById("inner").className = ('removePopup');
+                document.getElementById("outer").className = ('removePopup');
+                document.getElementById("courseProfile").className = ('removeProfileContent');
+            }
+        })

@@ -1,6 +1,10 @@
 extends ../layout
 
 block content
+    include ../teacherProfile
+    div(id="outer" class="removePopup")
+        div(id="inner" class="removePopup")
+            +teacherProfile(teacher, setCourses)
     h3 Teachers
         h4 Filters
         form(action='/teachers/' method='get')
@@ -25,8 +29,34 @@ block content
                 each teacher in sortedTeachers
                     tr
                         td
-                         a(href=`/teachers/profile/${teacher.id}`)= `${teacher.first_name} ${teacher.last_name}`
+                         a(href=`/teachers/?name=${teacher.first_name}_${teacher.last_name}` class="teachers")= `${teacher.first_name} ${teacher.last_name}`
                         td= teacher.room
                         td
                          a(href=`mailto:${teacher.email}`)= teacher.email
 
+    script.
+        let teachers = document.querySelectorAll(".teachers")
+        teachers.forEach(element => {
+            element.addEventListener("click", function () {
+                localStorage.setItem('teacherPopup', 'true')
+            });
+
+        });
+        document.getElementById("remove").addEventListener("click", function () {
+            localStorage.setItem('teacherPopup', 'false')
+            window.location.reload();
+        })
+        document.addEventListener("DOMContentLoaded", function () {
+            if (!window.location.href.includes("?name=")) {
+                localStorage.setItem('teacherPopup', 'false')
+            }
+            if (localStorage.getItem('teacherPopup') === 'true') {
+                document.getElementById("inner").className = ('popupOverlay');
+                document.getElementById("outer").className = ('popupOuter');
+                document.getElementById("teacherProfile").className = ('profileContent');
+            } else {
+                document.getElementById("inner").className = ('removePopup');
+                document.getElementById("outer").className = ('removePopup');
+                document.getElementById("teacherProfile").className = ('removeProfileContent');
+            }
+        })

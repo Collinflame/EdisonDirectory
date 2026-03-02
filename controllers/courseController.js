@@ -1,4 +1,5 @@
 const {Course, Teacher} = require('../models');
+const express = require("express");
 let departmentChoices = ['All', 'ALPS', 'Biomedicine', 'Computer Science', 'Engineering', 'English', 'Green Academy', 'History', 'Math', 'Performing Arts', 'Science', 'Teacher Academy', 'Visual Arts'];
 let classTypeChoices = ['All', 'AP Classes', 'Honors Classes']
 let sortedCourses = []
@@ -6,6 +7,8 @@ let sortedCourses = []
 module.exports.viewAll = async function(req, res){
     const courses = await Course.findAll();
     sortedCourses = courses.sort(sortName)
+
+    //Filters
     let searchDepartment = req.query.department;
     let departmentFilter = true;
     if (departmentFilter){
@@ -136,7 +139,25 @@ module.exports.viewAll = async function(req, res){
             }
         }
     }
-    res.render('course/view_all', {sortedCourses, departmentChoices, searchDepartment, classTypeChoices, searchClassType});
+
+    //Profile
+    const express = require('express');
+    const app = express();
+    app.get('/courses', (req) => {
+
+    })
+    let name = req.query.name;
+    let course = await Course.findByPk(12, {
+        include: ['teachers']
+    })
+    for (let i=0; i<courses.length; i++){
+        if (`${courses[i].name}` === name){
+            course = await Course.findByPk(courses[i].id, {
+                include: ['teachers']
+            });
+        }
+    }
+    res.render('course/view_all', {sortedCourses, departmentChoices, searchDepartment, classTypeChoices, searchClassType, course});
 }
 
 function sortName (a, b){
