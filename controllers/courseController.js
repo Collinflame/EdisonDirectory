@@ -161,7 +161,13 @@ module.exports.viewAll = async function(req, res){
 }
 
 function sortName (a, b){
-    if (a.department < b.department){
+    if (a.department === b.department){
+        if (a.name < b.name){
+            return -1;
+        } else if (a.name > b.name){
+            return 1;
+        }
+    } else if (a.department < b.department){
         return -1;
     } else if (a.department > b.department){
         return 1;
