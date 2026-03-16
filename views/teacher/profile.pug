@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+    h3 #{teacher.first_name} #{teacher.last_name}
+    div
+        p Room: #{teacher.room}
+        p Email:
+             a(href=`mailto:${teacher.email}` target="_blank" style="margin-left:4px") #{teacher.email}
+    h3 Teachers' Courses
+        table
+            thead
+            tr
+                th Period
+                th Class
+                th Department
+                th Grade Levels
+            tbody
+                each courses in setCourses
+                    tr
+                        td= courses[0]
+                        td= courses[1]
+                        td= courses[2]
+                        td= courses[3]
