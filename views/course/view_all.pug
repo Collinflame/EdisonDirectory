@@ -30,44 +30,6 @@ block content
                 a.type-filter
                     button(type='submit') Filter
                     button(type="button" onclick="window.location.href='/courses'") Reset
-
-
-
-
-
-
-
-
-
-
-
-
-            //
-                a.dropdown-label Building Type
-                a.sidenav-dropdown-menu
-                    select(id="department" name="department" autocomplete="off")
-                        each department in departmentChoices
-                            option(value=department selected = (department === searchDepartment)) #{department} ▾
-                a.dropdown-label Class Type
-                a.sidenav-dropdown-menu
-                    select(id="classType" name="classType" autocomplete="off")
-                        each classType in classTypeChoices
-                            option(value=classType selected = (classType === searchClassType)) #{classType} ▾
-                a.checkbox-btn
-                    input(id="ninth" name="ninth" type="checkbox" value="ninth")
-                    label(for="ninth") 9th Grade
-                a.checkbox-btn
-                    input(id="tenth" name="tenth" type="checkbox" value="tenth")
-                    label(for="tenth") 10th Grade
-                a.checkbox-btn
-                    input(id="eleventh" name="eleventh" type="checkbox" value="eleventh")
-                    label(for="eleventh") 11th Grade
-                a.checkbox-btn
-                    input(id="twelfth" name="twelfth" type="checkbox" value="twelfth")
-                    label(for="twelfth") 12th Grade
-                a.type-filter
-                    button(type='submit') Filter
-                    button(type="button" onclick="window.location.href='/courses'") Reset
     h1 Courses
     div.searchbar
         input(type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for course..")

@@ -26,19 +26,6 @@ block content
                 a.type-filter
                     button(type='submit') Filter
                     button(type="button" onclick="window.location.href='/teachers'") Reset
-
-            //ul.sidenav-list
-                li.nav-item.dropdown
-                    a.button School Directory
-                    ul.dropdown-menu
-                        li
-                            select(id="building" name="building" autocomplete="off") Building
-                                each building in buildingChoices
-                                    option(value=building selected = (building === searchBuildings)) #{building}
-                        li
-                            select(id="department" name="department" autocomplete="off") Department
-                                each department in departmentChoices
-                                    option(value=department selected = (department === searchDepartments)) #{department}
     h1 Teachers
     div.searchbar
         input(type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for teacher..")
