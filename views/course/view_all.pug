@@ -1,6 +1,10 @@
 extends ../layout
 
 block content
+    include ../courseProfile
+    div(id="outer" class="removePopup")
+        div(id="inner" class="removePopup")
+            +courseProfile(course)
     div.sidebar
         nav.sidenav
             h2 Course Filter
