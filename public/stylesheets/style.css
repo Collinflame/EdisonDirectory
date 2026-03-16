@@ -50,8 +50,6 @@ td, th{
   cursor: pointer;
 }
 
-
-
 .mapArea svg {
   position: relative;
   z-index: 2;
@@ -116,6 +114,7 @@ li {
 /* Hide the dropdown menu by default */
 .dropdown-menu {
   display: none;
+  justify-content: right;
   position: absolute;
   background-color: #f9f9f9;
   max-width: 160px;
@@ -145,7 +144,6 @@ li {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-menu {
   display: block;
-
 }
 
 .nav-item.dropdown a.button {
@@ -199,3 +197,186 @@ li {
   display: flex;
   justify-content: right;
 }
+
+
+form label {
+  font-size: 20px;
+}
+
+form select {
+  color: black;
+  background-color: white;
+  padding: 1px 1px;
+  font-size: 13px;
+  border: black solid 2px;
+  cursor: pointer;
+}
+
+/* Fixed sidenav, full height */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 1;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  border: none;
+  width:100%;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  padding: 1px 1px;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  cursor: default;
+}
+
+/* Main content */
+main {
+  justify-items: center; /* Increased text to enable scrolling */
+}
+
+.type-filter button {
+  color: #818181;
+  padding: 6px 10px;
+  font-size: 17px;
+  cursor: pointer;
+  background-color: black;
+  border: white solid 1px;
+}
+
+.type-filter button:hover {
+  color: #f1f1f1;
+}
+
+.searchbar {
+  display: flex;
+  justify-content: center;
+}
+
+#myInput {
+  width: 80%; /* Full-width */
+  height: 28px;
+  font-size: 16px; /* Increase font-size */
+  border: 1px solid black; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+.sidenav h2{
+  display: flex;
+  font-size: 24px;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.sidenav-item.label{
+  display: flex;
+  justify-content: center;
+  color: #818181;
+  text-decoration: none;
+  font-weight: bold;
+  padding-bottom: 4px;
+  padding-top: 4px;
+}
+
+.dropdown-select{
+  display: flex;
+  align-content: center;
+  text-align: center;
+  background-color: black;
+  color: #818181;
+  font-size: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+}
+
+.dropdown-select option {
+  text-align: center;
+  background-color: black;
+  color: #818181;
+  font-size: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+}
+
+.dropdown-select select{
+  background-color: black;
+  color: #818181;
+  overflow-x: hidden;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 16px;
+  padding: 4px 4px 4px 4px;
+  width: 200px;
+  border-bottom: 2px white solid;
+}
+
+.dropdown-select select:hover{
+  color: #f1f1f1;
+}
+
+.teacher-checkbox{
+padding: 10px 10px 10px 10px;
+}
+
+.teacher-checkbox:hover {
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.teacher-checkbox label:hover {
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.teacher-checkbox input:hover {
+  cursor: pointer;
+}
+
+.course-checkbox{
+
+}
+
+.course-checkbox:hover {
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.course-checkbox label:hover {
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.course-checkbox input:hover {
+  cursor: pointer;
+}
+
+.teacher-option {
+  display: flex;
+
+}
+
+.dropdown-select option.active {
+  display: block; /* Becomes part of the normal flow, pushing content below it */
+}
+

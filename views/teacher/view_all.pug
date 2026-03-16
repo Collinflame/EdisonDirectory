@@ -5,21 +5,32 @@ block content
     div(id="outer" class="removePopup")
         div(id="inner" class="removePopup")
             +teacherProfile(teacher, setCourses)
-    h3 Teachers
-        h4 Filters
-        form(action='/teachers/' method='get')
-          label(for="building") Building
-          select(id="building" name="building" autocomplete="off") Building
-                each building in buildingChoices
-                    option(value=building selected = (building === searchBuildings)) #{building}
-          label(for="department") Department
-          select(id="department" name="department" autocomplete="off") Department
-                each department in departmentChoices
-                    option(value=department selected = (department === searchDepartments)) #{department}
-          input(id="AP" name="AP" type="checkbox" value="AP")
-          label(for="AP") AP Teachers Only
-          button(type='submit') Filter
-        table
+    div.sidebar
+        nav.sidenav
+            h2 Teachers Filter
+            form(action='/teachers/' method='get')
+                a.sidenav-item.label Building
+                a.dropdown-select
+                    select(id="building" name="building" autocomplete="off") Building
+                        a.teacher-option
+                            each building in buildingChoices
+                                option(value=building selected = (building === searchBuildings)) #{building} ▾
+                a.sidenav-item.label Department
+                a.dropdown-select
+                    select(id="department" name="department" autocomplete="off") Department
+                        each department in departmentChoices
+                            option(value=department selected = (department === searchDepartments)) #{department} ▾
+                a.teacher-checkbox
+                    input(id="AP" name="AP" type="checkbox" value="AP")
+                    label(for="AP") AP Teachers Only
+                a.type-filter
+                    button(type='submit') Filter
+                    button(type="button" onclick="window.location.href='/teachers'") Reset
+    h1 Teachers
+    div.searchbar
+        input(type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for teacher..")
+    main
+        table(id="table")
             thead
                 tr
                     th Name
@@ -33,8 +44,29 @@ block content
                         td= teacher.room
                         td
                          a(href=`mailto:${teacher.email}`)= teacher.email
-
     script.
+        function myFunction() {
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("table");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
         let teachers = document.querySelectorAll(".teachers")
         teachers.forEach(element => {
             element.addEventListener("click", function () {
