@@ -178,7 +178,6 @@ li {
 .popupOuter{
   opacity: 1;
   transition: 0.4s;
-
   position: fixed;
   top: 0;
   left: 0;
@@ -186,7 +185,6 @@ li {
   bottom: 0;
   z-index: 99;
   background-color: rgba(0, 0, 0, 0.2);
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -197,7 +195,6 @@ li {
   display: flex;
   justify-content: right;
 }
-
 
 form label {
   font-size: 20px;
@@ -353,10 +350,6 @@ padding: 10px 10px 10px 10px;
   cursor: pointer;
 }
 
-.course-checkbox{
-
-}
-
 .course-checkbox:hover {
   color: #f1f1f1;
   cursor: pointer;
@@ -373,7 +366,6 @@ padding: 10px 10px 10px 10px;
 
 .teacher-option {
   display: flex;
-
 }
 
 .dropdown-select option.active {
