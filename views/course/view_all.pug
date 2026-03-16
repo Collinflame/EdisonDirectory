@@ -1,36 +1,78 @@
 extends ../layout
 
 block content
-    nav.sidenav
-        form(action='/courses' method='get')
-            a.dropdown-btn Building Type &downarrow;
-            a.dropdown-btn
-            ul.sidenav-dropdown-menu
-                select(id="department" name="department" autocomplete="off")
-                    each department in departmentChoices
-                        option(value=department selected = (department === searchDepartment)) #{department}
-            a.dropdown-btn Class Type &downarrow;
-            a.dropdown-btn
-            ul.sidenav-dropdown-menu
-                select(id="classType" name="classType" autocomplete="off")
-                    each classType in classTypeChoices
-                        option(value=classType selected = (classType === searchClassType)) #{classType}
-            a.checkbox-btn
-                input(id="ninth" name="ninth" type="checkbox" value="ninth")
-                label(for="ninth") Ninth Grade Classes
-            a.checkbox-btn
-                input(id="tenth" name="tenth" type="checkbox" value="tenth")
-                label(for="tenth") Tenth Grade Classes
-            a.checkbox-btn
-                input(id="eleventh" name="eleventh" type="checkbox" value="eleventh")
-                label(for="eleventh") Eleventh Grade Classes
-            a.checkbox-btn
-                input(id="twelfth" name="twelfth" type="checkbox" value="twelfth")
-                label(for="twelfth") Twelfth Grade Classes
-            a.type-filter
-                button(type='submit') Filter
+    div.sidebar
+        nav.sidenav
+            h2 Course Filter
+            form(action='/courses' method='get')
+                a.sidenav-item.label Building Type
+                a.dropdown-select
+                    select(id="department" name="department" autocomplete="off")
+                        each department in departmentChoices
+                            option(value=department selected = (department === searchDepartment)) #{department} ▾
+                a.sidenav-item.label Class Type
+                a.dropdown-select
+                    select(id="classType" name="classType" autocomplete="off")
+                        each classType in classTypeChoices
+                            option(value=classType selected = (classType === searchClassType)) #{classType} ▾
+                a.course-checkbox
+                    input(id="ninth" name="ninth" type="checkbox" value="ninth")
+                    label(for="ninth") 9th Grade
+                a.course-checkbox
+                    input(id="tenth" name="tenth" type="checkbox" value="tenth")
+                    label(for="tenth") 10th Grade
+                a.course-checkbox
+                    input(id="eleventh" name="eleventh" type="checkbox" value="eleventh")
+                    label(for="eleventh") 11th Grade
+                a.course-checkbox
+                    input(id="twelfth" name="twelfth" type="checkbox" value="twelfth")
+                    label(for="twelfth") 12th Grade
+                a.type-filter
+                    button(type='submit') Filter
+                    button(type="button" onclick="window.location.href='/courses'") Reset
+
+
+
+
+
+
+
+
+
+
+
+
+            //
+                a.dropdown-label Building Type
+                a.sidenav-dropdown-menu
+                    select(id="department" name="department" autocomplete="off")
+                        each department in departmentChoices
+                            option(value=department selected = (department === searchDepartment)) #{department} ▾
+                a.dropdown-label Class Type
+                a.sidenav-dropdown-menu
+                    select(id="classType" name="classType" autocomplete="off")
+                        each classType in classTypeChoices
+                            option(value=classType selected = (classType === searchClassType)) #{classType} ▾
+                a.checkbox-btn
+                    input(id="ninth" name="ninth" type="checkbox" value="ninth")
+                    label(for="ninth") 9th Grade
+                a.checkbox-btn
+                    input(id="tenth" name="tenth" type="checkbox" value="tenth")
+                    label(for="tenth") 10th Grade
+                a.checkbox-btn
+                    input(id="eleventh" name="eleventh" type="checkbox" value="eleventh")
+                    label(for="eleventh") 11th Grade
+                a.checkbox-btn
+                    input(id="twelfth" name="twelfth" type="checkbox" value="twelfth")
+                    label(for="twelfth") 12th Grade
+                a.type-filter
+                    button(type='submit') Filter
+                    button(type="button" onclick="window.location.href='/courses'") Reset
+    h1 Courses
+    div.searchbar
+        input(type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for course..")
     main
-        table
+        table(id="table")
             thead
                 tr
                     th Name
@@ -43,3 +85,25 @@ block content
                             a(href=`/courses/profile/${course.id}`)= course.name
                         td= course.department
                         td= course.grade_levels
+    script.
+        function myFunction() {
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("table");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }

@@ -165,7 +165,7 @@ form select {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: black;
   opacity: 1;
   overflow-x: hidden;
   padding-top: 20px;
@@ -173,17 +173,16 @@ form select {
 
 /* Style the sidenav links and the dropdown button */
 .sidenav a, .dropdown-btn {
-  padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 20px;
   color: #818181;
   display: block;
   border: none;
-  background: none;
   width:100%;
-  text-align: left;
+  text-align: center;
   cursor: pointer;
   outline: none;
+  padding: 1px 1px;
 }
 
 /* On mouse-over */
@@ -196,67 +195,138 @@ main {
   justify-items: center; /* Increased text to enable scrolling */
 }
 
-
-/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
-.dropdown-container {
-  display: none;
-  background-color: #262626;
-  padding-left: 8px;
-}
-
-/* Optional: Style the caret down icon */
-.fa-caret-down {
-  float: right;
-  padding-right: 8px;
-}
-
-.sidenav-dropdown-menu select {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #818181;
-  display: block;
-  border: none;
-  background: none;
-  width:100%;
-  text-align: left;
-  cursor: pointer;
-  outline: none;
-}
-
-.sidenav-dropdown-menu select:hover {
-  color: #f1f1f1;
-}
-
-.sidenav-dropdown-menu select option {
-  color: #818181;
-  background: black;
-}
-
-.checkbox-btn:hover {
-  color: #f1f1f1;
-  cursor: pointer;
-}
-
-.checkbox-btn label:hover {
-  color: #f1f1f1;
-  cursor: pointer;
-}
-
-.checkbox-btn input:hover {
-  cursor: pointer;
-}
-
 .type-filter button {
-  color: black;
-  background-color: white;
+  color: #818181;
   padding: 6px 10px;
   font-size: 17px;
-  border: black solid 2px;
   cursor: pointer;
+  background-color: black;
+  border: white solid 1px;
+}
+
+.type-filter button:hover {
+  color: #f1f1f1;
 }
 
 .directory {
   display: flex;
   justify-content: right;
 }
+
+.searchbar {
+  display: flex;
+  justify-content: center;
+}
+
+#myInput {
+  width: 80%; /* Full-width */
+  height: 28px;
+  font-size: 16px; /* Increase font-size */
+  border: 1px solid black; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+.sidenav h2{
+  display: flex;
+  font-size: 24px;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.sidenav-item.label{
+  display: flex;
+  justify-content: center;
+  color: #818181;
+  text-decoration: none;
+  font-weight: bold;
+  padding-bottom: 4px;
+  padding-top: 4px;
+}
+
+.dropdown-select{
+  display: flex;
+  align-content: center;
+  text-align: center;
+  background-color: black;
+  color: #818181;
+  font-size: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+}
+
+.dropdown-select option {
+  text-align: center;
+  background-color: black;
+  color: #818181;
+  font-size: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+}
+
+.dropdown-select select{
+  background-color: black;
+  color: #818181;
+  overflow-x: hidden;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 16px;
+  padding: 4px 4px 4px 4px;
+  width: 200px;
+  border-bottom: 2px white solid;
+}
+
+.dropdown-select select:hover{
+  color: #f1f1f1;
+}
+
+.teacher-checkbox{
+padding: 10px 10px 10px 10px;
+}
+
+.teacher-checkbox:hover {
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.teacher-checkbox label:hover {
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.teacher-checkbox input:hover {
+  cursor: pointer;
+}
+
+.course-checkbox{
+
+}
+
+.course-checkbox:hover {
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.course-checkbox label:hover {
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.course-checkbox input:hover {
+  cursor: pointer;
+}
+
+.teacher-option {
+  display: flex;
+
+}
+
+.dropdown-select option.active {
+  display: block; /* Becomes part of the normal flow, pushing content below it */
+}
+
