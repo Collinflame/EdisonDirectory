@@ -29,8 +29,8 @@ block content
                 //area(class="roomArea" shape="rect" coords="108.5, 1440.5, 161.5, 1486.5" href='/map/?room=D105A')
 
                 //Band Rooms
-                area(class="roomArea" shape="rect" coords="616.5, 899.5, 660.5, 931.5" href='/map/?room=M70')
-                area(class="roomArea" shape="rect" coords="616.5, 934.5, 660.5, 964.5" href='/map/?room=M71')
+                //area(class="roomArea" shape="rect" coords="616.5, 899.5, 660.5, 931.5" href='/map/?room=M70')
+                //area(class="roomArea" shape="rect" coords="616.5, 934.5, 660.5, 964.5" href='/map/?room=M71')
 
                 //Bus Lane, Counseling
                 area(class="roomArea" shape="rect" coords="57, 611, 102, 1549" href='https://edison.fresnounified.org/schedules/regular-bus-schedules' target='_blank')
@@ -38,28 +38,25 @@ block content
 
                 //CTE Building
                 area(class="roomArea" shape="rect" coords="682, 912.5, 723.5, 946" href='/map/?room=101')
-                area(class="roomArea" shape="rect" coords="726.5, 912.5, 764.5, 946" href='/map/?room=102')
-                area(class="roomArea" shape="rect" coords="767.5, 912.5, 807, 945.5" href='/map/?room=103')
+                //area(class="roomArea" shape="rect" coords="767.5, 912.5, 807, 945.5" href='/map/?room=103')
                 area(class="roomArea" shape="rect" coords="889.5, 912.5, 940.5, 946" href='/map/?room=104')
                 area(class="roomArea" shape="rect" coords="899.5, 998.5, 941.5, 1024" href='/map/?room=105')
                 area(class="roomArea" shape="rect" coords="854.5, 998.5, 896.5, 1024" href='/map/?room=106')
                 area(class="roomArea" shape="rect" coords="777.5, 998.5, 816, 1024" href='/map/?room=107')
-                area(class="roomArea" shape="rect" coords="682, 969, 756.5, 997" href='/map/?room=201')
-                area(class="roomArea" shape="rect" coords="682.5, 881.5, 765, 911.5" href='/map/?room=203')
-                area(class="roomArea" shape="rect" coords="767, 881.5, 806.5, 911.5" href='/map/?room=204')
-                area(class="roomArea" shape="rect" coords="810, 881.5, 840, 911.5" href='/map/?room=205')
-                area(class="roomArea" shape="rect" coords="889.5, 882.5, 940.5, 911.5" href='/map/?room=207')
+                //area(class="roomArea" shape="rect" coords="682.5, 881.5, 765, 911.5" href='/map/?room=203')
+                //area(class="roomArea" shape="rect" coords="767, 881.5, 806.5, 911.5" href='/map/?room=204')
+                //area(class="roomArea" shape="rect" coords="810, 881.5, 840, 911.5" href='/map/?room=205')
+                //area(class="roomArea" shape="rect" coords="889.5, 882.5, 940.5, 911.5" href='/map/?room=207')
                 area(class="roomArea" shape="rect" coords="899.5, 969.5, 941.5, 997.5" href='/map/?room=208')
                 area(class="roomArea" shape="rect" coords="819.5, 969.5, 851.5, 997.5" href='/map/?room=210')
-                area(class="roomArea" shape="rect" coords="777.5, 969.5, 816, 997.5" href='/map/?room=211')
 
                 //Locker Rooms
-                area(class="roomArea" shape="rect" coords="997.5, 1167.5, 1058.5, 1188.5" href='/map/?name=')
-                area(class="roomArea" shape="rect" coords="997.5, 1189.5, 1058.5, 1210.5" href='/map/?name=')
-                area(class="roomArea" shape="rect" coords="997.5, 1212.5, 1058.5, 1233.5" href='/map/?name=')
-                area(class="roomArea" shape="rect" coords="1060.25, 1167.5, 1121.5, 1188.5" href='/map/?name=')
-                area(class="roomArea" shape="rect" coords="1060.25, 1189.5, 1121.5, 1210.5" href='/map/?name=')
-                area(class="roomArea" shape="rect" coords="1060.25, 1212.5, 1121.5, 1233.5" href='/map/?name=')
+                area(class="roomArea" shape="rect" coords="997.5, 1167.5, 1058.5, 1188.5" href='/map/?name=Allison')
+                area(class="roomArea" shape="rect" coords="997.5, 1189.5, 1058.5, 1210.5" href='/map/?name=Benavidez')
+                area(class="roomArea" shape="rect" coords="997.5, 1212.5, 1058.5, 1233.5" href='/map/?name=Mahackian')
+                area(class="roomArea" shape="rect" coords="1060.25, 1167.5, 1121.5, 1188.5" href='/map/?name=Murray')
+                area(class="roomArea" shape="rect" coords="1060.25, 1189.5, 1121.5, 1210.5" href='/map/?name=Schoenfeld')
+                area(class="roomArea" shape="rect" coords="1060.25, 1212.5, 1121.5, 1233.5" href='/map/?name=Thompson')
 
                 //Portable Buildings
                 //area(class="roomArea" shape="rect" coords="681.5, 801.5, 726.5, 853.5" href='/map/?room=P3')
@@ -174,7 +171,7 @@ block content
             window.location.reload();
         })
         document.addEventListener("DOMContentLoaded", function(){
-            if (!window.location.href.includes("?room=")){
+            if (!window.location.href.includes("?room=") && !window.location.href.includes("?name=")){
                 localStorage.setItem('hasPopup', 'false')
             }
             if (localStorage.getItem('hasPopup') === 'true') {

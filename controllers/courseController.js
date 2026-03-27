@@ -1,6 +1,6 @@
 const {Course, Teacher} = require('../models');
 const express = require("express");
-let departmentChoices = ['All', 'ALPS', 'Biomedicine', 'Computer Science', 'Engineering', 'English', 'Green Academy', 'History', 'Math', 'Performing Arts', 'Science', 'Teacher Academy', 'Visual Arts'];
+let departmentChoices = ['All', 'ALPS', 'Biomedicine', 'Computer Science', 'Engineering', 'English', 'Foreign Language', 'Green Academy', 'History', 'Math', 'Performing Arts', 'Physical Education', 'Science', 'Teacher Academy', 'Visual Arts'];
 let classTypeChoices = ['All', 'AP Classes', 'Honors Classes']
 let sortedCourses = []
 
@@ -44,7 +44,13 @@ module.exports.viewAll = async function(req, res){
                     sortedCourses.splice(i, 1);
                 }
             }
-        } else if (searchDepartment === 'Green Academy') {
+        } else if (searchDepartment === 'Foreign Language') {
+            for (let i = sortedCourses.length - 1; i >= 0; i--) {
+                if (sortedCourses[i].department !== searchDepartment) {
+                    sortedCourses.splice(i, 1);
+                }
+            }
+        }else if (searchDepartment === 'Green Academy') {
             for (let i = sortedCourses.length - 1; i >= 0; i--) {
                 if (sortedCourses[i].department !== searchDepartment) {
                     sortedCourses.splice(i, 1);
@@ -68,7 +74,13 @@ module.exports.viewAll = async function(req, res){
                     sortedCourses.splice(i, 1);
                 }
             }
-        } else if (searchDepartment === 'Science') {
+        } else if (searchDepartment === 'Physical Education') {
+            for (let i = sortedCourses.length - 1; i >= 0; i--) {
+                if (sortedCourses[i].department !== searchDepartment) {
+                    sortedCourses.splice(i, 1);
+                }
+            }
+        }else if (searchDepartment === 'Science') {
             for (let i = sortedCourses.length - 1; i >= 0; i--) {
                 if (sortedCourses[i].department !== searchDepartment) {
                     sortedCourses.splice(i, 1);
