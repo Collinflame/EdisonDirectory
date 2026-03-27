@@ -372,3 +372,11 @@ padding: 10px 10px 10px 10px;
   display: block; /* Becomes part of the normal flow, pushing content below it */
 }
 
+main td a:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+main tr th{
+  background: lightgrey;
+}
