@@ -1,7 +1,7 @@
 const {Teacher, Period, Course} = require('../models');
 const express = require("express");
 let buildingChoices = ['All', 'Admin South', 'Art Building', 'CTE Building', 'Science Building', 'W-Building'];
-let departmentChoices = ['All', 'ALPS', 'Biomedicine', 'Computer Science', 'Engineering', 'English', 'Green Academy', 'History', 'Math', 'Performing Arts', 'Science', 'Teacher Academy', 'Visual Arts'];
+let departmentChoices = ['All', 'ALPS', 'Biomedicine', 'Computer Science', 'Engineering', 'English', 'Foreign Language', 'Green Academy', 'History', 'Math', 'Performing Arts', 'Physical Education', 'Science', 'Teacher Academy', 'Visual Arts'];
 let sortedTeachers = [];
 
 
@@ -144,7 +144,22 @@ module.exports.viewAll = async function(req, res){
                     sortedTeachers.splice(i, 1);
                 }
             }
-        }  else if (searchDepartment === 'Green Academy') {
+        }  else if (searchDepartment === 'Foreign Language') {
+            for (let i = sortedTeachers.length - 1; i >= 0; i--) {
+                let correctDepartment = false;
+                let teacher = await Teacher.findByPk(sortedTeachers[i].id, {
+                    include: ['courses']
+                });
+                for (let i = 0; i<teacher.courses.length; i++){
+                    if (teacher.courses[i].department === "Foreign Language"){
+                        correctDepartment = true;
+                    }
+                }
+                if (!correctDepartment){
+                    sortedTeachers.splice(i, 1);
+                }
+            }
+        } else if (searchDepartment === 'Green Academy') {
             for (let i = sortedTeachers.length - 1; i >= 0; i--) {
                 let correctDepartment = false;
                 let teacher = await Teacher.findByPk(sortedTeachers[i].id, {
@@ -197,6 +212,21 @@ module.exports.viewAll = async function(req, res){
                 });
                 for (let i = 0; i<teacher.courses.length; i++){
                     if (teacher.courses[i].department === "Performing Arts"){
+                        correctDepartment = true;
+                    }
+                }
+                if (!correctDepartment){
+                    sortedTeachers.splice(i, 1);
+                }
+            }
+        } else if (searchDepartment === 'Physical Education') {
+            for (let i = sortedTeachers.length - 1; i >= 0; i--) {
+                let correctDepartment = false;
+                let teacher = await Teacher.findByPk(sortedTeachers[i].id, {
+                    include: ['courses']
+                });
+                for (let i = 0; i<teacher.courses.length; i++){
+                    if (teacher.courses[i].department === "Physical Education"){
                         correctDepartment = true;
                     }
                 }
@@ -310,12 +340,13 @@ module.exports.viewMap = async function(req, res){
 
     })
     let roomNumber = req.query.room;
+    let coachName = req.query.name;
     let teacher = await Teacher.findByPk(12, {
         include: ['courses', 'periods']
     });
     const teachers = await Teacher.findAll();
     for (let i=0; i<teachers.length; i++){
-        if (teachers[i].room === roomNumber){
+        if (teachers[i].room === roomNumber || teachers[i].last_name === coachName){
             teacher = await Teacher.findByPk(teachers[i].id, {
                 include: ['courses', 'periods']
             });

@@ -9,7 +9,7 @@ block content
         nav.sidenav
             h2 Course Filter
             form(action='/courses' method='get')
-                a.sidenav-item.label Building Type
+                a.sidenav-item.label Department
                 a.dropdown-select
                     select(id="department" name="department" autocomplete="off")
                         each department in departmentChoices
