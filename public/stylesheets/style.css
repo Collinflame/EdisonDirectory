@@ -414,3 +414,6 @@ tr:nth-child(odd) a{
   text-decoration: none;
 }
 
+tr.headers {
+  background: lightgrey;
+}
