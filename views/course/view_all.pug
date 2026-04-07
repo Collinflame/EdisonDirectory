@@ -14,23 +14,29 @@ block content
                     select(id="department" name="department" autocomplete="off")
                         each department in departmentChoices
                             option(value=department selected = (department === searchDepartment)) #{department} ▾
+                div.filterSection
                 a.sidenav-item.label Class Type
                 a.dropdown-select
                     select(id="classType" name="classType" autocomplete="off")
                         each classType in classTypeChoices
                             option(value=classType selected = (classType === searchClassType)) #{classType} ▾
+                div.filterSection
                 a.course-checkbox
                     input(id="ninth" name="ninth" type="checkbox" value="ninth")
                     label(for="ninth") 9th Grade
+                div.filterSectionGrade
                 a.course-checkbox
                     input(id="tenth" name="tenth" type="checkbox" value="tenth")
                     label(for="tenth") 10th Grade
+                div.filterSectionGrade
                 a.course-checkbox
                     input(id="eleventh" name="eleventh" type="checkbox" value="eleventh")
                     label(for="eleventh") 11th Grade
+                div.filterSectionGrade
                 a.course-checkbox
                     input(id="twelfth" name="twelfth" type="checkbox" value="twelfth")
                     label(for="twelfth") 12th Grade
+                div.filterSection
                 a.type-filter
                     button(type='submit') Filter
                     button(type="button" onclick="window.location.href='/courses'") Reset

@@ -12,17 +12,19 @@ block content
                 a.sidenav-item.label Building
                 a.dropdown-select
                     select(id="building" name="building" autocomplete="off") Building
-                        a.teacher-option
-                            each building in buildingChoices
-                                option(value=building selected = (building === searchBuildings)) #{building} ▾
+                        each building in buildingChoices
+                            option(value=building selected = (building === searchBuildings)) #{building} ▾
+                div.filterSection
                 a.sidenav-item.label Department
                 a.dropdown-select
                     select(id="department" name="department" autocomplete="off") Department
                         each department in departmentChoices
                             option(value=department selected = (department === searchDepartments)) #{department} ▾
+                div.filterSection
                 a.teacher-checkbox
                     input(id="AP" name="AP" type="checkbox" value="AP")
                     label(for="AP") AP Teachers Only
+                div.filterSection
                 a.type-filter
                     button(type='submit') Filter
                     button(type="button" onclick="window.location.href='/teachers'") Reset
