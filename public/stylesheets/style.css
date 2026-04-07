@@ -254,6 +254,12 @@ main {
   cursor: pointer;
   background-color: black;
   border: white solid 1px;
+  margin: 10px
+}
+
+select:focus {
+  outline: none;
+  box-shadow: none; /* Often used by modern browsers for a glow effect */
 }
 
 .type-filter button:hover {
@@ -325,7 +331,7 @@ main {
   font-size: 16px;
   padding: 4px 4px 4px 4px;
   width: 200px;
-  border-bottom: 2px white solid;
+  border-bottom: 2px black solid;
 }
 
 .dropdown-select select:hover{
@@ -360,13 +366,20 @@ padding: 10px 10px 10px 10px;
   cursor: pointer;
 }
 
+.filterSection {
+  margin: 15px;
+  border: lightgray;
+  border-top-style: solid;
+}
+
+.filterSectionGrade {
+  margin: 15px;
+}
+
 .course-checkbox input:hover {
   cursor: pointer;
 }
 
-.teacher-option {
-  display: flex;
-}
 
 .dropdown-select option.active {
   display: block; /* Becomes part of the normal flow, pushing content below it */
