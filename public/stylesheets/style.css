@@ -5,13 +5,8 @@ body {
   min-height: 1000px;
 }
 
-a {
-  color: #00B7FF;
-  text-decoration: none;
-}
-
 table {
-  width: 80%;
+  width: 80.5%;
 }
 
 td, th{
@@ -265,12 +260,17 @@ main {
   justify-content: center;
 }
 
+::placeholder{
+  color: black;
+}
+
 #myInput {
   width: 80%; /* Full-width */
   height: 28px;
   font-size: 16px; /* Increase font-size */
   border: 1px solid black; /* Add a grey border */
   margin-bottom: 12px; /* Add some space below the input */
+  background-color: darkgrey;
 }
 
 .sidenav h2{
@@ -380,3 +380,24 @@ main td a:hover {
 main tr th{
   background: lightgrey;
 }
+
+tr:nth-child(even) {
+  background-color: black;
+  color: goldenrod;
+}
+
+tr:nth-child(even) a{
+  color: goldenrod;
+  text-decoration: none;
+}
+
+tr:nth-child(odd) {
+  background-color: goldenrod;
+  color: black;
+}
+
+tr:nth-child(odd) a{
+  color: black;
+  text-decoration: none;
+}
+
