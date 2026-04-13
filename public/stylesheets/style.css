@@ -8,6 +8,7 @@ body {
 
 table {
   width: 80.5%;
+  table-layout: fixed;
 }
 
 td, th{
@@ -417,4 +418,16 @@ tr:nth-child(odd) a{
 
 tr.headers {
   background: lightgrey;
+}
+
+th:nth-child(1){
+  width: 32.2%;
+}
+
+th:nth-child(3){
+  width: 32.2%;
+}
+
+th:nth-child(2){
+  width: 16.1%;
 }
