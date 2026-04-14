@@ -420,14 +420,30 @@ tr.headers {
   background: lightgrey;
 }
 
-th:nth-child(1){
+.view th:nth-child(1){
   width: 32.2%;
 }
 
-th:nth-child(3){
+.view th:nth-child(3){
   width: 32.2%;
+}
+
+.view th:nth-child(2){
+  width: 16.1%;
+}
+
+th:nth-child(1){
+  width: 12%;
 }
 
 th:nth-child(2){
-  width: 16.1%;
+  width: 28%;
+}
+
+th:nth-child(3){
+  width: 28%;
+}
+
+th:nth-child(4){
+  width: 12%;
 }
