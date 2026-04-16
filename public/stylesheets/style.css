@@ -259,6 +259,8 @@ select:focus {
   box-shadow: none; /* Often used by modern browsers for a glow effect */
 }
 
+#myInpur
+
 .type-filter button:hover {
   color: #f1f1f1;
 }

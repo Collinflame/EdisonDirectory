@@ -1,6 +1,6 @@
 const {Course, Teacher} = require('../models');
 const express = require("express");
-let departmentChoices = ['All', 'ALPS', 'Biomedicine', 'Computer Science', 'Engineering', 'English', 'Foreign Language', 'Green Academy', 'History', 'Math', 'Performing Arts', 'Physical Education', 'Science', 'Teacher Academy', 'Visual Arts'];
+let departmentChoices = ['All', 'ALPS', 'Biomedicine', 'Computer Science', 'Engineering', 'English', 'Ethnic Studies', 'Foreign Language', 'Green Academy', 'History', 'Math', 'Performing Arts', 'Physical Education', 'Science', 'Teacher Academy', 'Visual Arts', 'Other'];
 let classTypeChoices = ['All', 'AP Classes', 'Honors Classes']
 let sortedCourses = []
 
@@ -44,7 +44,13 @@ module.exports.viewAll = async function(req, res){
                     sortedCourses.splice(i, 1);
                 }
             }
-        } else if (searchDepartment === 'Foreign Language') {
+        } else if (searchDepartment === 'Ethnic Studies') {
+            for (let i = sortedCourses.length - 1; i >= 0; i--) {
+                if (sortedCourses[i].department !== searchDepartment) {
+                    sortedCourses.splice(i, 1);
+                }
+            }
+        }else if (searchDepartment === 'Foreign Language') {
             for (let i = sortedCourses.length - 1; i >= 0; i--) {
                 if (sortedCourses[i].department !== searchDepartment) {
                     sortedCourses.splice(i, 1);
@@ -93,6 +99,12 @@ module.exports.viewAll = async function(req, res){
                 }
             }
         } else if (searchDepartment === 'Visual Arts') {
+            for (let i = sortedCourses.length - 1; i >= 0; i--) {
+                if (sortedCourses[i].department !== searchDepartment) {
+                    sortedCourses.splice(i, 1);
+                }
+            }
+        } else if (searchDepartment === 'Other') {
             for (let i = sortedCourses.length - 1; i >= 0; i--) {
                 if (sortedCourses[i].department !== searchDepartment) {
                     sortedCourses.splice(i, 1);

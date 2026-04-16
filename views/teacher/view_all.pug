@@ -78,7 +78,7 @@ block content
         });
         document.getElementById("remove").addEventListener("click", function () {
             localStorage.setItem('teacherPopup', 'false')
-            window.location.reload();
+            history.back()
         })
         document.addEventListener("DOMContentLoaded", function () {
             if (!window.location.href.includes("?name=")) {
