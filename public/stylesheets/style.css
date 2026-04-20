@@ -259,19 +259,23 @@ select:focus {
   box-shadow: none; /* Often used by modern browsers for a glow effect */
 }
 
-#myInpur
-
-.type-filter button:hover {
-  color: #f1f1f1;
-}
-
 .searchbar {
   display: flex;
   justify-content: center;
 }
 
+.searchbar [type="text"]:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.searchbar [type="text"]:focus::placeholder {
+  color: transparent;
+}
+
 ::placeholder{
   color: black;
+  font-weight: bold;
 }
 
 #myInput {
@@ -280,7 +284,7 @@ select:focus {
   font-size: 16px; /* Increase font-size */
   border: 1px solid black; /* Add a grey border */
   margin-bottom: 12px; /* Add some space below the input */
-  background-color: darkgrey;
+  background-color: dimgrey;
 }
 
 .sidenav h2{
@@ -380,6 +384,10 @@ padding: 10px 10px 10px 10px;
   margin: 15px;
 }
 
+.type-filter button:hover {
+  color: white;
+}
+
 .course-checkbox input:hover {
   cursor: pointer;
 }
@@ -448,4 +456,16 @@ th:nth-child(3){
 
 th:nth-child(4){
   width: 12%;
+}
+
+.courseProfile th:nth-child(1){
+  width: 32.2%;
+}
+
+.courseProfile th:nth-child(3){
+  width: 38.2%;
+}
+
+.courseProfile th:nth-child(2){
+  width: 10.1%;
 }
