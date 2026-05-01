@@ -1,17 +1,15 @@
 doctype html
 html
-  div.directory
-    nav.navbar
-      ul.nav-list
-        li.nav-item.dropdown
-          a.button School Directory
-          ul.dropdown-menu
-            li
-              a(href=`/map`) Map
-            li
-              a(href=`/teachers`) View Teachers
-            li
-              a(href=`/courses`) View Courses
+  ul
+    li
+      a(class="active" href="#home") Home
+    li
+      a(href="#news") News
+    li
+      a(href="#contact") Contact
+    li
+      a(href="#about") About
+
 
   head
     title= title
