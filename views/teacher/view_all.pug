@@ -28,24 +28,25 @@ block content
                 a.type-filter
                     button(type='submit') Filter
                     button(type="button" onclick="window.location.href='/teachers'") Reset
-    h1 Teachers
-    div.searchbar
-        input(type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for teacher..")
-    main
-        table.view(id="table")
-            thead
-                tr
-                    th Name
-                    th Room
-                    th Email
-            tbody
-                each teacher in sortedTeachers
+    div.viewAll-items
+        h1 Teachers
+        div.searchbar
+            input(type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for teacher..")
+        main
+            table.view(id="table")
+                thead
                     tr
-                        td
-                         a(href=`/teachers/?name=${teacher.first_name}_${teacher.last_name}` class="teachers")= `${teacher.first_name} ${teacher.last_name}`
-                        td= teacher.room
-                        td
-                         a(href=`mailto:${teacher.email}`)= teacher.email
+                        th Name
+                        th Room
+                        th Email
+                tbody
+                    each teacher in sortedTeachers
+                        tr
+                            td
+                             a(href=`/teachers/?name=${teacher.first_name}_${teacher.last_name}` class="teachers")= `${teacher.first_name} ${teacher.last_name}`
+                            td= teacher.room
+                            td
+                             a(href=`mailto:${teacher.email}`)= teacher.email
     script.
         function myFunction() {
             // Declare variables
