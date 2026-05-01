@@ -40,23 +40,24 @@ block content
                 a.type-filter
                     button(type='submit') Filter
                     button(type="button" onclick="window.location.href='/courses'") Reset
-    h1 Courses
-    div.searchbar
-        input(type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for course..")
-    main
-        table.view(id="table")
-            thead
-                tr
-                    th Name
-                    th Department
-                    th Grade Levels
-            tbody
-                each course in sortedCourses
+    div.viewAll-items
+        h1 Courses
+        div.searchbar
+            input(type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for course..")
+        main
+            table.view(id="table")
+                thead
                     tr
-                        td
-                            a(href=`/courses/?name=${course.name}` class="courses")= course.name
-                        td= course.department
-                        td= course.grade_levels
+                        th Name
+                        th Department
+                        th Grade Levels
+                tbody
+                    each course in sortedCourses
+                        tr
+                            td
+                                a(href=`/courses/?name=${course.name}` class="courses")= course.name
+                            td= course.department
+                            td= course.grade_levels
     script.
         let courses = document.querySelectorAll(".courses")
         courses.forEach(element => {
