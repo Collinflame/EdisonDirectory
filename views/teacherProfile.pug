@@ -9,7 +9,7 @@ mixin teacherProfile(teacher, setCourses)
             p Email:
                 a(href=`mailto:${teacher.email}` target="_blank" style="margin-left:4px") #{teacher.email}
         h3 Teachers' Courses
-            table
+            table.profile
                 thead
                 tr.headers
                     th Period
