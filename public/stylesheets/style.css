@@ -3,7 +3,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   min-width: 1800px;
   min-height: 1000px;
-  background: #b5afaf;
+  background: #302e2e;
 }
 
 h2, p {
@@ -73,7 +73,7 @@ table {
 }
 
 td, th{
-  border: 1px solid #000;
+  border: 1px solid #000000;
   padding: 8px 12px;
   text-align: center;
 }
@@ -120,6 +120,8 @@ td, th{
 h1{
   text-align: center;
   font-weight: bold;
+  font-size: 50px;
+  color: white;
 }
 
 .imageArea {
@@ -130,7 +132,6 @@ h1{
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
 .mapArea {
@@ -192,7 +193,7 @@ form label {
 
 form select {
   color: black;
-  background-color: white;
+  background-color: #ffffff;
   padding: 1px 1px;
   font-size: 13px;
   border: black solid 2px;
@@ -217,7 +218,7 @@ form select {
 .sidenav a, .dropdown-btn {
   text-decoration: none;
   font-size: 20px;
-  color: #818181;
+  color: #ffffff;
   display: block;
   border: none;
   width:100%;
@@ -238,7 +239,7 @@ main {
 }
 
 .type-filter button {
-  color: #818181;
+  color: #ffffff;
   padding: 6px 10px;
   font-size: 17px;
   cursor: pointer;
@@ -273,11 +274,11 @@ select:focus {
 
 #myInput {
   width: 80%; /* Full-width */
-  height: 28px;
-  font-size: 16px; /* Increase font-size */
+  height: 45px;
+  font-size: 20px; /* Increase font-size */
   border: 1px solid black; /* Add a grey border */
   margin-bottom: 12px; /* Add some space below the input */
-  background-color: dimgrey;
+  background-color: #ffffff;
 }
 
 .sidenav h2{
@@ -291,7 +292,7 @@ select:focus {
 .sidenav-item.label{
   display: flex;
   justify-content: center;
-  color: #818181;
+  color: #ffffff;
   text-decoration: none;
   font-weight: bold;
   padding-bottom: 4px;
@@ -314,7 +315,7 @@ select:focus {
 .dropdown-select option {
   text-align: center;
   background-color: black;
-  color: #818181;
+  color: #ffffff;
   font-size: 16px;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -324,7 +325,7 @@ select:focus {
 
 .dropdown-select select{
   background-color: black;
-  color: #818181;
+  color: #ffffff;
   overflow-x: hidden;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -392,7 +393,22 @@ padding: 10px 10px 10px 10px;
 
 main td a:hover {
   text-decoration: underline;
+  font-size: 22px;
+}
+
+.email:hover {
+  text-decoration: underline;
+  font-size: 17px;
+}
+
+main td{
   font-weight: bold;
+  font-size: 21px;
+}
+
+.profile td{
+  font-weight: bold;
+  font-size: 16px;
 }
 
 main tr th{
@@ -400,17 +416,17 @@ main tr th{
 }
 
 tr:nth-child(even) {
-  background-color: black;
-  color: goldenrod;
+  background-color: #7f7f7f;
+  color: black;
 }
 
 tr:nth-child(even) a{
-  color: goldenrod;
+  color: black;
   text-decoration: none;
 }
 
 tr:nth-child(odd) {
-  background-color: goldenrod;
+  background-color: #fce597;
   color: black;
 }
 
@@ -419,8 +435,15 @@ tr:nth-child(odd) a{
   text-decoration: none;
 }
 
-tr.headers {
+th {
   background: lightgrey;
+  height: 20px;
+  font-weight: bold;
+  font-size: 21px;
+}
+
+td {
+  height: 38px;
 }
 
 .view th:nth-child(1){

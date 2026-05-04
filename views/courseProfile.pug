@@ -19,4 +19,4 @@ mixin courseProfile(course)
                             td= `${teacher.first_name} ${teacher.last_name}`
                             td= teacher.room
                             td
-                                a(href=`mailto:${teacher.email}`)= teacher.email
+                                a.email(href=`mailto:${teacher.email}`)= teacher.email
