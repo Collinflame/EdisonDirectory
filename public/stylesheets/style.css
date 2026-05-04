@@ -1,4 +1,5 @@
 body {
+  padding-top: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   min-width: 1800px;
   min-height: 1000px;
@@ -9,6 +10,21 @@ h2, p {
   margin: 10px;
 }
 
+.title {
+  text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.title:hover {
+  text-decoration: none;
+  background-color: black;
+}
+
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -16,13 +32,16 @@ ul {
   top: 0;
   left: 0;
   overflow: hidden;
-  background-color: #333333;
-  position: absolute;
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  z-index: 90000;
+  border-bottom:2px solid white;
 }
 
 ul li {
   float: left;
-  border-right:1px solid #bbbbbb;
+  justify-content: right;
 }
 
 ul li:last-child {
@@ -37,18 +56,15 @@ ul li a {
   text-decoration: none;
 }
 
-ul li a:hover:not(.active) {
+ul li a:hover {
   background-color: #111111;
 }
 
-ul li a.active {
-  background-color: #04AA6D;
-}
 
 .viewAll-items {
   justify-content: center;
   padding-left: 100px;
-  padding-top: 50px;
+  padding-right: 50px;
 }
 
 table {
@@ -114,6 +130,7 @@ h1{
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .mapArea {
@@ -188,12 +205,12 @@ form select {
   width: 200px;
   position: fixed;
   z-index: 1;
-  top: 50px;
+  top: 44px;
   left: 0;
   background-color: black;
   opacity: 1;
   overflow-x: hidden;
-  padding-top: 50px;
+  padding-top: 20px;
 }
 
 /* Style the sidenav links and the dropdown button */
