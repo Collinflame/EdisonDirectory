@@ -17,11 +17,13 @@ h2, p {
   text-align: center;
   font-weight: bold;
   font-size: 16px;
+  cursor: default;
 }
 
 .title:hover {
   text-decoration: none;
   background-color: black;
+  color: white;
 }
 
 
@@ -54,10 +56,13 @@ ul li a {
   text-align: center;
   padding: 14px 14px;
   text-decoration: none;
+
 }
 
 ul li a:hover {
   background-color: #111111;
+  color: #808080;
+  transition: 0.4s;
 }
 
 
@@ -106,6 +111,20 @@ td, th{
   justify-content: center;
   line-height: 1;
   cursor: pointer;
+  box-shadow: 0 4px #666;
+}
+
+.exitButton:hover {
+  background-color: darkred;
+  transition: 0.2s;
+  color: black;
+}
+
+.exitButton:active {
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+  background-color: darkred;
+  color: black;
 }
 
 .mapArea svg {
@@ -114,7 +133,6 @@ td, th{
   pointer-events: none;
   min-width: 1280px;
   max-width: 1280px;
-
 }
 
 h1{
@@ -122,6 +140,7 @@ h1{
   font-weight: bold;
   font-size: 50px;
   color: white;
+  cursor: default;
 }
 
 .imageArea {
@@ -245,7 +264,8 @@ main {
   cursor: pointer;
   background-color: black;
   border: white solid 1px;
-  margin: 10px
+  margin: 10px;
+  box-shadow: 0 4px #999;
 }
 
 select:focus {
@@ -287,6 +307,7 @@ select:focus {
   justify-content: center;
   color: white;
   font-weight: bold;
+  cursor: default;
 }
 
 .sidenav-item.label{
@@ -337,21 +358,30 @@ select:focus {
 }
 
 .dropdown-select select:hover{
-  color: #f1f1f1;
+  background-color: #111111;
+  transition: 0.2s;
+  color: lightgray;
+  font-size: 17px;
+  font-weight: bold;
 }
 
 .teacher-checkbox{
-padding: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
 }
 
 .teacher-checkbox:hover {
-  color: #f1f1f1;
+  color: lightgray;
   cursor: pointer;
+  background-color: #111111;
+  transition: 0.2s;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .teacher-checkbox label:hover {
-  color: #f1f1f1;
+  color: lightgray;
   cursor: pointer;
+
 }
 
 .teacher-checkbox input:hover {
@@ -359,12 +389,16 @@ padding: 10px 10px 10px 10px;
 }
 
 .course-checkbox:hover {
-  color: #f1f1f1;
+  color: lightgray;
   cursor: pointer;
+  background-color: #111111;
+  transition: 0.15s;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .course-checkbox label:hover {
-  color: #f1f1f1;
+  color: lightgray;
   cursor: pointer;
 }
 
@@ -379,7 +413,16 @@ padding: 10px 10px 10px 10px;
 }
 
 .type-filter button:hover {
-  color: white;
+  color: black;
+  background-color: #808080;
+  transition: 0.2s;
+}
+
+.type-filter button:active {
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+  color: black;
+  background-color: #808080;
 }
 
 .course-checkbox input:hover {
@@ -440,10 +483,12 @@ th {
   height: 20px;
   font-weight: bold;
   font-size: 21px;
+  cursor: default;
 }
 
 td {
   height: 38px;
+  cursor: default;
 }
 
 .view th:nth-child(1){
