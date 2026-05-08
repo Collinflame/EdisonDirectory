@@ -3,11 +3,6 @@ var router = express.Router();
 const teacherController = require('../controllers/teacherController');
 const courseController = require("../controllers/courseController");
 
-/* GET home page. */
-router.get('/index.html', (req, res) => {
-    res.redirect(301, '/map');
-});
-
 router.get('/', (req, res) => {
     res.redirect(301, '/map');
 });
