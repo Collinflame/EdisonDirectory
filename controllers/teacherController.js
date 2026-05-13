@@ -1,7 +1,7 @@
 const {Teacher, Period, Course} = require('../models');
 const express = require("express");
 let buildingChoices = ['All', 'Admin South', 'Art Building', 'CTE Building', 'Science Building', 'W-Building'];
-let departmentChoices = ['All', 'ALPS', 'Biomedicine', 'Computer Science', 'Engineering', 'English', 'Ethnic Studies', 'Foreign Language', 'Green Academy', 'History', 'Math', 'Performing Arts', 'Physical Education', 'Science', 'Teacher Academy', 'Visual Arts', 'Other'];
+let departmentChoices = ['All', 'ALPS', 'Biomedicine', 'Computer Science', 'Engineering', 'English', 'Ethnic Studies', 'Foreign Language', 'Green Academy', 'History', 'Math', 'Performing Arts', 'Science', 'Visual Arts', 'Other'];
 let sortedTeachers = [];
 
 
@@ -234,22 +234,7 @@ module.exports.viewAll = async function(req, res){
                     sortedTeachers.splice(i, 1);
                 }
             }
-        } else if (searchDepartment === 'Physical Education') {
-            for (let i = sortedTeachers.length - 1; i >= 0; i--) {
-                let correctDepartment = false;
-                let teacher = await Teacher.findByPk(sortedTeachers[i].id, {
-                    include: ['courses']
-                });
-                for (let i = 0; i<teacher.courses.length; i++){
-                    if (teacher.courses[i].department === "Physical Education"){
-                        correctDepartment = true;
-                    }
-                }
-                if (!correctDepartment){
-                    sortedTeachers.splice(i, 1);
-                }
-            }
-        } else if (searchDepartment === 'Science') {
+        }  else if (searchDepartment === 'Science') {
             for (let i = sortedTeachers.length - 1; i >= 0; i--) {
                 let correctDepartment = false;
                 let teacher = await Teacher.findByPk(sortedTeachers[i].id, {
@@ -257,21 +242,6 @@ module.exports.viewAll = async function(req, res){
                 });
                 for (let i = 0; i<teacher.courses.length; i++){
                     if (teacher.courses[i].department === "Science"){
-                        correctDepartment = true;
-                    }
-                }
-                if (!correctDepartment){
-                    sortedTeachers.splice(i, 1);
-                }
-            }
-        } else if (searchDepartment === 'Teacher Acadmey') {
-            for (let i = sortedTeachers.length - 1; i >= 0; i--) {
-                let correctDepartment = false;
-                let teacher = await Teacher.findByPk(sortedTeachers[i].id, {
-                    include: ['courses']
-                });
-                for (let i = 0; i<teacher.courses.length; i++){
-                    if (teacher.courses[i].department === "Teacher Academy"){
                         correctDepartment = true;
                     }
                 }
