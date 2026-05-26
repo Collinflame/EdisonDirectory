@@ -1,6 +1,6 @@
 const {Course, Teacher} = require('../models');
 const express = require("express");
-let departmentChoices = ['All', 'ALPS', 'Biomedicine', 'Computer Science', 'Engineering', 'English', 'Ethnic Studies', 'Foreign Language', 'Green Academy', 'History', 'Math', 'Performing Arts', 'Science', 'Visual Arts', 'Other'];
+let departmentChoices = ['All', 'Biomedicine', 'Computer Science', 'Engineering', 'English', 'Ethnic Studies', 'Foreign Language', 'Green Academy', 'History', 'Math', 'Performing Arts', 'Science', 'Technical Theatre', 'Visual Arts', 'Other'];
 let classTypeChoices = ['All', 'AP Classes', 'Honors Classes']
 let sortedCourses = []
 
@@ -14,12 +14,6 @@ module.exports.viewAll = async function(req, res){
     if (departmentFilter){
         if (searchDepartment === 'All') {
             sortedCourses = courses.sort(sortName);
-        } else if (searchDepartment === 'ALPS') {
-            for (let i = sortedCourses.length - 1; i >= 0; i--) {
-                if (sortedCourses[i].department !== searchDepartment) {
-                    sortedCourses.splice(i, 1);
-                }
-            }
         } else if (searchDepartment === 'Biomedicine') {
             for (let i = sortedCourses.length - 1; i >= 0; i--) {
                 if (sortedCourses[i].department !== searchDepartment) {
@@ -81,6 +75,12 @@ module.exports.viewAll = async function(req, res){
                 }
             }
         } else if (searchDepartment === 'Science') {
+            for (let i = sortedCourses.length - 1; i >= 0; i--) {
+                if (sortedCourses[i].department !== searchDepartment) {
+                    sortedCourses.splice(i, 1);
+                }
+            }
+        } else if (searchDepartment === 'Technical Theatre') {
             for (let i = sortedCourses.length - 1; i >= 0; i--) {
                 if (sortedCourses[i].department !== searchDepartment) {
                     sortedCourses.splice(i, 1);
@@ -159,7 +159,7 @@ module.exports.viewAll = async function(req, res){
 
     })
     let name = req.query.name;
-    let course = await Course.findByPk(12, {
+    let course = await Course.findByPk(11, {
         include: ['teachers']
     })
     for (let i=0; i<courses.length; i++){
